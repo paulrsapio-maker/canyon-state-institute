@@ -9,7 +9,9 @@ import EnrollSteps from "@/components/EnrollSteps";
 import Accordion from "@/components/Accordion";
 import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
+import JsonLd from "@/components/JsonLd";
 import { programs } from "@/lib/content";
+import { pageMetadata, programCoursesJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return programs.map((p) => ({ slug: p.slug }));
@@ -23,7 +25,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const program = programs.find((p) => p.slug === slug);
   if (!program) return {};
-  return { title: program.name, description: program.short };
+  return pageMetadata({
+    title: program.name,
+    description: program.short,
+    path: `/programs/${program.slug}`,
+  });
 }
 
 export default async function ProgramPage({
@@ -37,6 +43,7 @@ export default async function ProgramPage({
 
   return (
     <>
+      <JsonLd data={programCoursesJsonLd(program)} />
       <section className="bg-sand">
         <div className="mx-auto max-w-6xl px-6 pb-14 pt-8 sm:pb-16">
           <Breadcrumb

@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
 import AboutRail from "@/components/AboutRail";
 import CredentialPathway from "@/components/CredentialPathway";
 import CtaBand from "@/components/CtaBand";
 import { credentials } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "CSI Credentials",
   description:
     "The Canyon State Institute credential framework — from Statements of Participation to Professional Certificates, increasing in rigor and time commitment.",
-};
+  path: "/about/credentials",
+});
 
 export default function CredentialsPage() {
   return (

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Award, GraduationCap, Lightbulb, ShieldCheck } from "lucide-react";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
@@ -7,12 +6,14 @@ import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
 import { images } from "@/components/images";
 import { about } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Our Commitment",
   description:
     "Every decision at Canyon State Institute is guided by excellence, integrity, innovation, and student success.",
-};
+  path: "/about/commitment",
+});
 
 const valueIcons = {
   award: Award,

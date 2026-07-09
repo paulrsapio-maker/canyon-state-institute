@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { UserRound } from "lucide-react";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
 import AboutRail from "@/components/AboutRail";
 import CtaBand from "@/components/CtaBand";
 import { about } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Our Executive Team",
   description:
     "Canyon State Institute leadership brings decades of expertise spanning military service, workforce development, education, and organizational management.",
-};
+  path: "/about/executive-team",
+});
 
 export default function ExecutiveTeamPage() {
   const team = about.executiveTeam;

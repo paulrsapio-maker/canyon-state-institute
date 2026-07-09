@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
 import ContactForm from "@/components/ContactForm";
 import { LogoEmblem } from "@/components/Logo";
 import { contact, site } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Contact Us",
   description:
     "Questions about programs, credentials, or partnerships? Reach the Canyon State Institute team — we respond within one business day.",
-};
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
 import ProgramCard from "@/components/ProgramCard";
 import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
 import { programs } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Programs",
   description:
     "Professional, Graduate, Enterprise, and Free Course offerings from Canyon State Institute — career-focused education with a clear credential pathway.",
-};
+  path: "/programs",
+});
 
 export default function ProgramsPage() {
   return (

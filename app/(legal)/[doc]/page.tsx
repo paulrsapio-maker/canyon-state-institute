@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/ui";
 import { legalPages } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
 export const dynamicParams = false;
 
@@ -17,7 +18,11 @@ export async function generateMetadata({
   const { doc } = await params;
   const page = legalPages[doc];
   if (!page) return {};
-  return { title: page.title };
+  return pageMetadata({
+    title: page.title,
+    description: page.body[0].slice(0, 155),
+    path: `/${doc}`,
+  });
 }
 
 export default async function LegalPage({ params }: { params: Promise<{ doc: string }> }) {

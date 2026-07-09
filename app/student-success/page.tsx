@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Briefcase, Clock, Compass, Star } from "lucide-react";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
@@ -6,12 +5,14 @@ import CtaBand from "@/components/CtaBand";
 import Reveal from "@/components/Reveal";
 import { images } from "@/components/images";
 import { studentSuccess } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Student Success",
   description:
     "Advising, career services, veteran support, and flexible formats — the systems behind every Canyon State Institute outcome.",
-};
+  path: "/student-success",
+});
 
 const supportIcons = {
   compass: Compass,

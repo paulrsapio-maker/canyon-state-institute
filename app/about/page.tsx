@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
 import AboutRail from "@/components/AboutRail";
 import CtaBand from "@/components/CtaBand";
 import { images } from "@/components/images";
 import { about } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Who We Are",
   description:
     "Canyon State Institute is a veteran-owned educational institution dedicated to career readiness, professional growth, and lifelong learning.",
-};
+  path: "/about",
+});
 
 export default function AboutPage() {
   return (

@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { Breadcrumb, SectionHeading } from "@/components/ui";
@@ -8,12 +7,14 @@ import ContactForm from "@/components/ContactForm";
 import Reveal from "@/components/Reveal";
 import { images } from "@/components/images";
 import { admissions, site } from "@/lib/content";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Get Started",
   description:
     "Enrolling at Canyon State Institute is simple and personal — tell us your goal and an advisor will map the path with you.",
-};
+  path: "/admissions",
+});
 
 export default function AdmissionsPage() {
   return (

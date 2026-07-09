@@ -4,6 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { site } from "@/lib/content";
 import { getBaseUrl } from "@/lib/base-url";
+import { organizationJsonLd, webSiteJsonLd } from "@/lib/seo";
+import JsonLd from "@/components/JsonLd";
 import "./globals.css";
 
 const sourceSerif = Source_Serif_4({
@@ -29,12 +31,29 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description: site.description,
+  applicationName: site.name,
+  alternates: { canonical: "/" },
   openGraph: {
     siteName: site.name,
     title: `${site.name} — Career-Focused Education`,
     description: site.description,
     type: "website",
-    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: `${site.name} — canyon sunrise` }],
+    locale: "en_US",
+    url: "/",
+    images: [
+      {
+        url: "/og.jpg",
+        width: 1200,
+        height: 630,
+        alt: `${site.name} — veteran-owned, career-focused education`,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — Career-Focused Education`,
+    description: site.description,
+    images: ["/og.jpg"],
   },
   // Kept off search engines until launch approval — see CONTENT-REVIEW.md
   robots: launched ? undefined : { index: false, follow: false },
@@ -54,6 +73,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${sourceSerif.variable} ${sourceSans.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
+        <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={webSiteJsonLd()} />
         <a
           href="#main"
           className="sr-only z-[100] rounded-lg bg-canyon px-4 py-3 font-semibold text-warm focus:not-sr-only focus:fixed focus:left-4 focus:top-4"
