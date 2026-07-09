@@ -41,6 +41,8 @@ Spec source: `docs/website-spec.md` §8.
 
 ## Resolved during build
 
+- ✅ **CodeRabbit flag on /high-school placeholders (2026-07-09) — acknowledged, intentionally kept visible:** the whole site is a noindexed pre-launch demo and bracketed placeholders are the site-wide review convention. The HS-1..HS-7 items above block `SITE_LAUNCHED=true`; if launch arrives before HS content is approved, pull the nav/footer links and page at that decision point instead.
+
 - ✅ **Share/SEO layer complete (2026-07-09):** branded OG card, per-page OG/Twitter + canonicals, EducationalOrganization/WebSite JSON-LD sitewide, Course ItemList on program pages, web manifest + icons. Canonicals/OG URLs resolve to the Vercel domain automatically; set `NEXT_PUBLIC_SITE_URL` to the real domain at launch and everything (canonicals, OG, sitemap, JSON-LD) switches with it. Note: Course JSON-LD is generated from the sample catalog — it updates automatically when item #5 lands.
 
 - ✅ "Stanford Online Credentials" / "Grand Canyon Institute" source-copy references corrected to Canyon State Institute (per spec §3.5 warning) — confirm intent with owner.
