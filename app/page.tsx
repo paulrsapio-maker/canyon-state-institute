@@ -24,6 +24,13 @@ const programCards = [
     href: `/programs/${p.slug}`,
     imageKey: p.image,
   })),
+  {
+    title: "High School Program",
+    short:
+      "A flexible, supportive online path to a high school diploma — with the same student-centered support behind it.",
+    href: "/high-school",
+    imageKey: "high-school",
+  },
 ];
 
 export default function HomePage() {

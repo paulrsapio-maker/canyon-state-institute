@@ -30,6 +30,7 @@ export const programImages: Record<string, StaticImageData> = {
   graduate: programGraduate,
   enterprise: programEnterprise,
   free: programFree,
+  "high-school": highSchoolHero,
 };
 
 export const imageAlts: Record<string, string> = {
@@ -40,4 +41,6 @@ export const imageAlts: Record<string, string> = {
   graduate: "An adult learner contributing to a small seminar discussion in a library setting",
   enterprise: "A team of professionals in a leadership workshop around a conference table",
   free: "A person learning on a laptop at a sunny kitchen table at home",
+  "high-school":
+    "A teenage student studying at a bright home workspace with a laptop and notebook",
 };
