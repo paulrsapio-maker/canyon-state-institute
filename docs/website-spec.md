@@ -56,11 +56,12 @@ Type scale (desktop): H1 48/56, H2 36/44, H3 26/34, H4 20/28, body 18/28, small 
 
 ```
 Home
-├── Programs
+├── Programs                   (Track 1 — Certificate Programs)
 │   ├── Professional Education
 │   ├── Graduate Education
 │   ├── Enterprise Education
 │   └── Free Courses
+├── High School                (Track 2 — High School Diploma Program; see HS page spec)
 ├── Student Success            (stories, outcomes, testimonials)
 ├── About Us
 │   ├── Who We Are
@@ -74,7 +75,8 @@ Home
 ### 2.2 Global Header
 
 - **Top utility bar** (Ink Brown background, 36px): far left — **"★ Veteran Owned" badge** in Sun Gold (this satisfies the "Top Left – Veteran Owned" requirement and persists on every page); far right — utility links (Student Login, Contact).
-- **Main nav bar** (Warm White, sticky): horizontal logo left; nav items — Programs (dropdown: Professional, Graduate, Enterprise, Free Courses), Student Success, About Us (dropdown), Contact; right-aligned primary button **"Get Started"** (Canyon Red).
+- **Main nav bar** (Warm White, sticky): horizontal logo left; nav items — Programs (dropdown: Professional, Graduate, Enterprise, Free Courses), **High School**, Student Success, About Us (dropdown), Admissions, Contact; right-aligned primary button **"Get Started"** (Canyon Red).
+- **Two-track note (DEAC):** the institution operates two program tracks — Track 1: Certificate Programs (under "Programs"), Track 2: High School Diploma Program (under "High School"). The tracks are defined in institutional policy and the catalog rather than in the header labels; see the High School page spec for the policy wording.
 - Mobile: hamburger menu, logo icon centered, Get Started button persists.
 
 ### 2.3 Global Footer

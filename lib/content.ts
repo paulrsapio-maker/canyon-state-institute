@@ -36,6 +36,7 @@ export const nav: {
         { label: "Free Courses", href: "/programs/free-courses" },
       ],
     },
+    { label: "High School", href: "/high-school" },
     { label: "Student Success", href: "/student-success" },
     {
       label: "About Us",
@@ -240,6 +241,122 @@ export const programs: Program[] = [
   },
 ];
 
+// ── High School Diploma Program (Track 2) ── see docs/high-school-page-spec.md.
+// One institution, two tracks: the HS program is a program OF CSI, not a
+// separate school (DEAC single-institution positioning — do not sub-brand).
+export const highSchool = {
+  hero: {
+    eyebrow: "A Program of Canyon State Institute",
+    heading: "Earn Your High School Diploma, On Your Path",
+    // ⚠️ Do not add the word "accredited" until accreditation is granted.
+    sub: "The Canyon State Institute High School Program brings our career-focused, student-centered approach to [grades 9–12] — a flexible, supportive online path to a high school diploma.",
+    primary: { label: "How It Works", href: "#how-it-works" },
+    secondary: { label: "Request Info", href: "/contact" },
+  },
+  overview: {
+    heading: "Program Overview",
+    paragraphs: [
+      "The Canyon State Institute High School Program extends the institute's career-focused, student-centered approach to secondary education. Coursework is delivered online with the same faculty standards, support systems, and commitment to real-world readiness that define every CSI program.",
+      "Canyon State Institute serves learners across two program tracks — career certificate programs and our high school diploma program — under one institution, one faculty standard, and one commitment to student success.",
+    ],
+    atAGlance: [
+      { label: "Grades", value: "[9–12 — pending approval]" },
+      { label: "Format", value: "[Online — live / self-paced TBD]" },
+      { label: "Schedule", value: "[Rolling / semester — TBD]" },
+      { label: "Start dates", value: "[TBD]" },
+      { label: "Class size", value: "[TBD]" },
+      { label: "Diploma", value: "High school diploma issued by Canyon State Institute" },
+    ],
+  },
+  fastFacts: [
+    // ⚠️ Placeholders — real HS figures required before launch (CONTENT-REVIEW.md).
+    { value: "[#–#]", label: "Grades Offered" },
+    { value: "[##]", label: "Courses Offered" },
+    { value: "[##]", label: "Avg. Class Size" },
+    { value: "[###]", label: "Students Enrolled" },
+    { value: "[##%]", label: "Graduation Rate" },
+    { value: "[##]", label: "States Served" },
+  ],
+  fastFactsFootnote:
+    "Program figures publish as they are finalized — values shown are placeholders.",
+  curriculum: {
+    heading: "Curriculum & Graduation Requirements",
+    intro:
+      "Graduation requirements are organized by subject area. Credit counts and course descriptions are pending internal approval and will be published in the institutional catalog.",
+    subjects: [
+      { area: "English", credits: "[TBD]" },
+      { area: "Mathematics", credits: "[TBD]" },
+      { area: "Science", credits: "[TBD]" },
+      { area: "Social Studies", credits: "[TBD]" },
+      { area: "Electives", credits: "[TBD]" },
+      { area: "Health & Wellness", credits: "[TBD]" },
+    ],
+    model:
+      "Instruction is delivered [live online / self-paced / hybrid — format pending approval] with certified instructors, structured feedback, and regular progress checks.",
+    pdf: {
+      label: "Download the High School one-sheet (PDF)",
+      href: "/docs/csi-high-school-one-sheet.pdf",
+    },
+  },
+  support: {
+    heading: "Student Support",
+    intro:
+      "Support systems are built into the school week, not bolted on. Every student has people in their corner.",
+    tiles: [
+      {
+        title: "Academic Advising",
+        body: "Every high school student has an advisor tracking progress, flagging obstacles early, and keeping the path to graduation clear.",
+        icon: "compass",
+      },
+      {
+        title: "College & Career Counseling",
+        body: "Counselors help students plan beyond the diploma — college applications, career exploration, and a direct pathway into Canyon State Institute certificate programs.",
+        icon: "briefcase",
+        link: { label: "Explore certificate programs", href: "/programs" },
+      },
+      {
+        title: "Wellness Support",
+        body: "Flexible pacing, human check-ins, and resources that support the whole student — not just the transcript.",
+        icon: "heart",
+      },
+    ],
+  },
+  admissionsSteps: {
+    heading: "How It Works",
+    steps: [
+      {
+        title: "Inquire",
+        body: "Tell us about your student and your goals. We'll walk you through the program, schedule, and what to expect.",
+      },
+      {
+        title: "Apply",
+        body: "Complete the application and share transcripts for any prior high school coursework.",
+      },
+      {
+        title: "Enroll",
+        body: "Review and sign the enrollment agreement — a parent or guardian signature is required for students under 18 — and choose a start date.",
+      },
+    ],
+  },
+  policy: {
+    heading: "Accreditation & Institutional Structure",
+    paragraphs: [
+      "Canyon State Institute offers instruction through two program tracks delivered by distance education: Track 1 — Certificate Programs, serving career preparation and advancement; and Track 2 — the High School Diploma Program, leading to a high school diploma issued by Canyon State Institute.",
+      "Both tracks operate under the ownership, governance, administration, academic policies, and student-services infrastructure of Canyon State Institute as a single institution. All programs are described in the institutional catalog, and students in both tracks share the same enrollment agreement framework, complaint procedures, and records policies.",
+    ],
+    disclosures: [
+      "[Accreditation status — pending. This program does not claim accreditation until granted.]",
+      "[State authorization disclosures for enrollment of minors, by state — pending legal review.]",
+    ],
+  },
+  closing: {
+    heading: "One institution. Every stage of the journey.",
+    sub: "Talk with our team about whether the High School Program is the right fit for your student.",
+    cta: { label: "Request Information", href: "/contact" },
+    secondary: { label: "Explore Certificate Programs", href: "/programs" },
+  },
+};
+
 export const studentSuccess = {
   heading: "Student Success",
   intro:
@@ -413,6 +530,7 @@ export const footer = {
         { label: "Graduate Education", href: "/programs/graduate-education" },
         { label: "Enterprise Education", href: "/programs/enterprise-education" },
         { label: "Free Courses", href: "/programs/free-courses" },
+        { label: "High School Program", href: "/high-school" },
       ],
     },
     {

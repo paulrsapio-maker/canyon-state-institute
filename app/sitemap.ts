@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/programs",
     ...programs.map((p) => `/programs/${p.slug}`),
+    "/high-school",
     "/student-success",
     "/about",
     "/about/executive-team",
@@ -21,6 +22,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${base}${route}`,
     lastModified: new Date(),
     changeFrequency: route === "" ? "weekly" : "monthly",
-    priority: route === "" ? 1 : route.startsWith("/programs") ? 0.8 : 0.5,
+    priority:
+      route === ""
+        ? 1
+        : route === "/high-school" || route.startsWith("/programs")
+          ? 0.8
+          : 0.5,
   }));
 }

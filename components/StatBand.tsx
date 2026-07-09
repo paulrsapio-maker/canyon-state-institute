@@ -37,14 +37,21 @@ function animateCount(el: HTMLElement, raw: string) {
   requestAnimationFrame(tick);
 }
 
+const COLUMN_CLASS: Record<5 | 6, string> = {
+  5: "lg:grid-cols-5",
+  6: "lg:grid-cols-6",
+};
+
 export default function StatBand({
   heading,
   stats,
   footnote,
+  columns = 5,
 }: {
   heading?: string;
   stats: { value: string; label: string }[];
   footnote?: string;
+  columns?: 5 | 6;
 }) {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -97,7 +104,9 @@ export default function StatBand({
             {heading}
           </p>
         )}
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+        <dl
+          className={`grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 ${COLUMN_CLASS[columns]}`}
+        >
           {stats.map((s) => (
             <div key={s.label} data-stat className="flex flex-col items-center text-center">
               <dt className="order-2 mt-3 text-[13px] font-semibold uppercase tracking-[0.16em] text-sand">

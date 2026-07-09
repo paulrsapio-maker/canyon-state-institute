@@ -1,9 +1,13 @@
 import { admissions } from "@/lib/content";
 
-export default function EnrollSteps() {
+export default function EnrollSteps({
+  steps = admissions.steps,
+}: {
+  steps?: { title: string; body: string }[];
+}) {
   return (
     <ol className="grid gap-8 sm:grid-cols-3">
-      {admissions.steps.map((step, i) => (
+      {steps.map((step, i) => (
         <li key={step.title} className="flex flex-col items-start">
           <span
             aria-hidden="true"

@@ -18,6 +18,18 @@ Spec source: `docs/website-spec.md` §8.
 | 8 | **Student testimonials/outcomes** — publish only real, consented stories (never fabricate for a school) | `/student-success` | ⬜ "Stories coming soon" note shown |
 | 9 | **Domain + hosting decision** — spec placeholder is canyonstateinstitute.edu | `.env` `NEXT_PUBLIC_SITE_URL` | ⬜ Unconfirmed |
 
+## Blocking — High School program (`/high-school`, spec: `docs/high-school-page-spec.md` §3)
+
+| # | Item | Where | Status |
+|---|------|-------|--------|
+| HS-1 | **Grades served** (9–12 vs 7–12) + instructional format (live / self-paced / hybrid) | `highSchool.hero.sub`, `overview.atAGlance`, `curriculum.model` | ⬜ Bracketed placeholders |
+| HS-2 | **Curriculum credit requirements + course list** | `highSchool.curriculum.subjects` | ⬜ All `[TBD]` |
+| HS-3 | **DEAC handbook review** of the Track 1/Track 2 policy wording + HS program standards (curriculum hours, credit definitions, proctoring) — have the DEAC liaison/consultant confirm | `highSchool.policy` (on-page) + catalog | ⬜ Draft wording live on page, unreviewed |
+| HS-4 | **State authorization for enrolling minors, by state** — required before marketing outside Arizona | `highSchool.policy.disclosures` | ⬜ Placeholder disclosure |
+| HS-5 | **Real HS fast facts** (grades, courses, class size, enrollment, grad rate, states) | `highSchool.fastFacts` | ⬜ Bracketed placeholders |
+| HS-6 | **HS admissions funnel decision** — own Get Started flow vs shared main funnel | Hero/closing CTAs currently → `/contact` | ⬜ Sharing main funnel for now |
+| HS-7 | **"Accredited" wording** — the word ships on this page only when accreditation is granted | `highSchool.hero.sub` | ⬜ Correctly omitted today |
+
 ## Blocking — technical
 
 | # | Item | Status |
