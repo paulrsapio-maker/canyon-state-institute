@@ -1,26 +1,82 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Canyon State Institute brand — docs/website-spec.md §1.3 */
+  --color-canyon: #7a2e0e; /* primary */
+  --color-terracotta: #a33e14; /* secondary / links */
+  --color-clay: #c05b2b; /* borders, dividers, icons */
+  --color-gold: #e8a33d; /* CTAs on dark, stats, badges */
+  --color-sand: #f6e7d3; /* section backgrounds, cards */
+  --color-warm: #fdfaf5; /* page background */
+  --color-ink: #3b2314; /* body text, footer */
+  --color-teal: #2e5e5a; /* support / success */
+
+  --font-serif: var(--font-source-serif), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-source-sans), system-ui, -apple-system, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-warm font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    background: rgb(232 163 61 / 0.45);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Belt-and-braces focus fallback; components add their own rings */
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  /* Scroll reveal — hidden state is applied by Reveal.tsx AFTER hydration and
+     only to below-viewport elements, so server HTML is always fully visible. */
+  .reveal-pending {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  .reveal-pending.reveal-in {
+    opacity: 1;
+    transform: none;
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s ease-out;
+  }
+
+  /* Slow, subtle hero drift */
+  @keyframes kenburns {
+    from {
+      transform: scale(1.02);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+  .hero-kenburns {
+    animation: kenburns 26s ease-out forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-pending {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .hero-kenburns {
+      animation: none;
+    }
+  }
 }

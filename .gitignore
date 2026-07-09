@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Nano Banana source PNGs (regenerable — see scripts/optimize-images.mjs)
+/source-images

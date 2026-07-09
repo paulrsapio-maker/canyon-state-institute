@@ -1,0 +1,31 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Canyon State Institute — emblem/icon -->
+  <defs>
+    <clipPath id="badge">
+      <circle cx="100" cy="100" r="92"/>
+    </clipPath>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#7A2E0E" stroke-width="6"/>
+
+  <!-- Sky -->
+  <circle cx="100" cy="100" r="92" fill="#F6E7D3"/>
+
+  <g clip-path="url(#badge)">
+    <!-- Sun -->
+    <circle cx="100" cy="78" r="30" fill="#E8A33D"/>
+
+    <!-- Far mesa layer -->
+    <path d="M-10 118 L34 118 L44 96 L74 96 L84 118 L120 118 L130 92 L162 92 L172 118 L210 118 L210 210 L-10 210 Z" fill="#C05B2B"/>
+
+    <!-- Mid canyon layer -->
+    <path d="M-10 140 L28 140 L42 116 L70 116 L82 140 L118 140 L132 112 L160 112 L172 140 L210 140 L210 210 L-10 210 Z" fill="#A33E14"/>
+
+    <!-- Near canyon layer -->
+    <path d="M-10 164 L36 164 L52 138 L84 138 L98 164 L138 164 L152 136 L182 136 L196 164 L210 164 L210 210 L-10 210 Z" fill="#7A2E0E"/>
+
+    <!-- River / path through the canyon -->
+    <path d="M100 210 C96 192 108 184 102 172 C98 164 104 158 100 150" fill="none" stroke="#F6E7D3" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+  </g>
+</svg>
