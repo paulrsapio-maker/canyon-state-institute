@@ -29,6 +29,8 @@ Spec source: `docs/website-spec.md` §8.
 
 ## Resolved during build
 
+- ✅ **Share/SEO layer complete (2026-07-09):** branded OG card, per-page OG/Twitter + canonicals, EducationalOrganization/WebSite JSON-LD sitewide, Course ItemList on program pages, web manifest + icons. Canonicals/OG URLs resolve to the Vercel domain automatically; set `NEXT_PUBLIC_SITE_URL` to the real domain at launch and everything (canonicals, OG, sitemap, JSON-LD) switches with it. Note: Course JSON-LD is generated from the sample catalog — it updates automatically when item #5 lands.
+
 - ✅ "Stanford Online Credentials" / "Grand Canyon Institute" source-copy references corrected to Canyon State Institute (per spec §3.5 warning) — confirm intent with owner.
 - ✅ All imagery is AI-generated (Gemini / Nano Banana), reviewed for text artifacts and regenerated where needed. Replace with real classroom/staff photography when available (spec §6 prefers real people; AI images are the approved interim).
 - ✅ WCAG 2.2 AA basics: skip link, focus rings, contrast-safe palette usage, reduced-motion support, semantic landmarks, form labels/errors.
