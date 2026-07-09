@@ -8,7 +8,7 @@ Spec source: `docs/website-spec.md` §8.
 
 | # | Item | Where | Status |
 |---|------|-------|--------|
-| 1 | **Fast-fact numbers** (year founded, programs, students served, employer partners, % veteran leadership) | Home fast-facts band → `lib/content.ts` `home.fastFacts` | ⬜ Placeholders in brackets |
+| 1 | **Fast-fact numbers** (year founded, programs, students served, employer partners, % veteran leadership) | Home fast-facts band → `lib/content.ts` `home.fastFacts` | ⬜ SAMPLE values in place (2024 / 24 / 1,200 / 45 / 80%) for design preview — replace with real, verifiable figures |
 | 2 | **Executive team roster** — names, titles, headshots, bios | `/about/executive-team` → `about.executiveTeam.members` | ⬜ Placeholder cards |
 | 3 | **Accreditation status** — determines credential-page claims and whether Graduate Certificate / Degree tiers appear | `/about/credentials` → `credentials.disclaimer` | ⬜ Disclaimer shown; no accreditor named (correct until held) |
 | 4 | **Credential hour thresholds** — 20/36–150/150+ tiers need internal approval | `credentials.tiers` | ⬜ Marked pending on page |

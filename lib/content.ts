@@ -65,16 +65,16 @@ export const home = {
     secondary: { label: "Who We Are", href: "/about" },
   },
   fastFacts: [
-    // ⚠️ Placeholders — CONTENT-REVIEW.md blocks launch until real numbers approved.
-    // Once real values land (e.g. "1,250" or "98%"), the band counts them up on scroll.
-    { value: "[YYYY]", label: "Year Founded" },
-    { value: "[##]", label: "Programs Offered" },
-    { value: "[#,###]", label: "Students Served" },
-    { value: "[##]", label: "Employer Partners" },
-    { value: "[##%]", label: "Veteran Leadership" },
+    // ⚠️ SAMPLE values approved for design preview (2026-07-09) — swap in real,
+    // verified figures before launch. CONTENT-REVIEW.md item #1 still blocks.
+    { value: "2024", label: "Year Founded" },
+    { value: "24", label: "Programs Offered" },
+    { value: "1,200", label: "Students Served" },
+    { value: "45", label: "Employer Partners" },
+    { value: "80%", label: "Veteran Leadership" },
   ],
   fastFactsFootnote:
-    "Figures shown as placeholders for layout approval — final numbers publish before launch.",
+    "Sample figures shown for preview — final numbers publish before launch.",
   credentialsTeaser: {
     heading: "Canyon State Institute Credentials",
     body: "Canyon State Institute offers a wide range of educational opportunities designed to help you meet your personal learning goals, wherever you are in your life or career. Explore our range of offerings by credential and academic rigor.",

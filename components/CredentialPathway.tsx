@@ -33,25 +33,40 @@ export default function CredentialPathway({
     if (rect.top < window.innerHeight - 40 && rect.bottom > 0) return;
     if (rect.bottom <= 0) return; // above viewport (scroll restoration) — stay static
 
+    // Tiles pop on with a spring overshoot; each arrow chases its tile in.
     const steps = [...list.querySelectorAll<HTMLElement>("[data-step]")];
     steps.forEach((el) => {
+      const isTile = el.dataset.step === "tile";
       el.style.opacity = "0";
-      el.style.transform = "translateX(-14px)";
-      el.style.transition = "opacity 0.45s ease-out, transform 0.45s ease-out";
+      el.style.transform = isTile ? "translateY(20px) scale(0.88)" : "translateX(-10px)";
+      el.style.transition = isTile
+        ? "opacity 0.45s ease-out, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)"
+        : "opacity 0.3s ease-out, transform 0.3s ease-out";
     });
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          steps.forEach((el, i) => {
+          let tileIndex = 0;
+          let arrowIndex = 0;
+          steps.forEach((el) => {
+            const isTile = el.dataset.step === "tile";
+            const delay = isTile ? tileIndex++ * 170 : arrowIndex++ * 170 + 120;
             setTimeout(() => {
               el.style.opacity = "1";
               el.style.transform = "none";
-            }, i * 90);
+            }, delay);
+            // Once landed, clear inline styles so the stylesheet's quick
+            // transition governs hover instead of the slow entrance spring.
+            setTimeout(() => {
+              el.style.transition = "";
+              el.style.transform = "";
+              el.style.opacity = "";
+            }, delay + 700);
           });
           io.disconnect();
         }
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
     io.observe(list);
     return () => io.disconnect();
@@ -64,7 +79,7 @@ export default function CredentialPathway({
       {tiers.map((tier, i) => (
         <li key={tier.name} className="flex flex-col items-center lg:flex-1 lg:flex-row">
           <div
-            data-step
+            data-step="tile"
             className={`group h-full w-full rounded-lg border border-clay/45 ${tileBg} shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-clay hover:shadow-md ${
               compact ? "px-4 py-4" : "px-5 py-6"
             }`}
@@ -83,7 +98,7 @@ export default function CredentialPathway({
             )}
           </div>
           {i < tiers.length - 1 && (
-            <span data-step className="shrink-0 py-1 lg:px-1.5 lg:py-0" aria-hidden="true">
+            <span data-step="arrow" className="shrink-0 py-1 lg:px-1.5 lg:py-0" aria-hidden="true">
               <ArrowRight className="h-5 w-5 rotate-90 text-terracotta lg:rotate-0" />
             </span>
           )}
