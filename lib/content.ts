@@ -75,6 +75,12 @@ export const home = {
   ],
   fastFactsFootnote:
     "Sample figures shown for preview — final numbers publish before launch.",
+  veteranBand: {
+    eyebrow: "Veteran Owned & Operated",
+    heading: "Founded by Those Who Served",
+    body: "Canyon State Institute was built by veterans who know what it means to take on a new mission. The discipline, integrity, and commitment to the people beside us that defined our service now drive everything we teach.",
+    cta: { label: "Our Story", href: "/about" },
+  },
   credentialsTeaser: {
     heading: "Canyon State Institute Credentials",
     body: "Canyon State Institute offers a wide range of educational opportunities designed to help you meet your personal learning goals, wherever you are in your life or career. Explore our range of offerings by credential and academic rigor.",

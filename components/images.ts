@@ -9,6 +9,7 @@ import programFree from "@/images/program-free.webp";
 import aboutWho from "@/images/about-who.webp";
 import aboutCommitment from "@/images/about-commitment.webp";
 import admissionsAdvisor from "@/images/admissions-advisor.webp";
+import veteranBand from "@/images/veteran-band.webp";
 
 export const images = {
   heroCanyon,
@@ -16,6 +17,7 @@ export const images = {
   aboutWho,
   aboutCommitment,
   admissionsAdvisor,
+  veteranBand,
   studentSuccess: programStudentSuccess,
 };
 

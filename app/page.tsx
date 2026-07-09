@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { ButtonLink, Eyebrow, SectionHeading } from "@/components/ui";
 import StatBand from "@/components/StatBand";
 import { LogoEmblem } from "@/components/Logo";
@@ -175,17 +175,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Landscape interlude */}
-      <div className="relative h-56 sm:h-72" aria-hidden="true">
+      {/* Veteran-owned statement band */}
+      <section className="relative flex min-h-[440px] items-center overflow-hidden sm:min-h-[520px]">
         <Image
-          src={images.sectionLandscape}
-          alt=""
+          src={images.veteranBand}
+          alt="Silhouette of a soldier carrying the American flag along a canyon ridge toward the sunrise"
           fill
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[72%_center]"
         />
-        <div className="absolute inset-0 bg-ink/10" />
-      </div>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(59,35,20,0.88),rgba(59,35,20,0.45)_45%,rgba(59,35,20,0.08)_75%)]"
+        />
+        <div className="relative mx-auto w-full max-w-6xl px-6 py-16">
+          <Reveal className="max-w-xl">
+            <p className="inline-flex items-center gap-2.5 text-[13px] font-semibold uppercase tracking-[0.28em] text-gold">
+              <Star className="h-4 w-4 fill-gold" aria-hidden="true" />
+              {home.veteranBand.eyebrow}
+            </p>
+            <h2 className="mt-4 font-serif text-[32px] font-bold leading-[40px] text-warm sm:text-[40px] sm:leading-[48px]">
+              {home.veteranBand.heading}
+            </h2>
+            <p className="mt-4 text-[17px] leading-[28px] text-sand">{home.veteranBand.body}</p>
+            <div className="mt-7">
+              <ButtonLink href={home.veteranBand.cta.href} variant="ghostLight">
+                {home.veteranBand.cta.label}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </ButtonLink>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
       {/* §3.7 Closing CTA */}
       <CtaBand
