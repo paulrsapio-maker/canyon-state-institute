@@ -211,7 +211,7 @@ Images are generated once (via AI image generation, outside of this codebase) in
 | Service | Purpose | Currently under | Action needed at handoff |
 |---|---|---|---|
 | **Vercel** | Hosting, builds, deploys | Builder's personal Vercel team (`paulrsapio-makers-projects`), project `canyon-state-institute` | Create a new project under the recipient's own Vercel account and deploy there, **or** use Vercel's project-transfer feature to move this exact project (see [§8.3](#step-3--hosting-vercel)) |
-| **GitHub** | Source control | **Not yet created** — the repo exists only as a local Git history with no remote | Create the repository under the recipient's GitHub account/organization (see [§8.1](#step-1--create-the-github-repository)) |
+| **GitHub** | Source control | Created under the **builder's** account — [`github.com/paulrsapio-maker/canyon-state-institute`](https://github.com/paulrsapio-maker/canyon-state-institute) (private), pushed and up to date | Transfer or re-grant ownership to the recipient (see [§8.1](#step-1--create-the-github-repository), which now documents what actually happened) |
 | **Domain** | `canyonstateinstitute.edu` (referenced in code as a placeholder) | **Not registered by anyone involved in this build** | Recipient must register the real domain (`.edu` registration has its own eligibility process in the US) and connect it in Vercel once decided — see `CONTENT-REVIEW.md` item 9 |
 | **Resend** | Contact-form email delivery | **No account connected** — `RESEND_API_KEY` is unset everywhere | Recipient creates a Resend account, verifies a sending domain, generates an API key, sets it as a Vercel environment variable |
 | **Google Fonts** | Source Serif 4 / Source Sans 3 | N/A — served via Next.js's built-in font optimization, no account required | None |
@@ -229,25 +229,30 @@ Work through these in order. Each step names who typically performs it.
 
 *(Performed by: whoever will own the GitHub account long-term — see the decision below.)*
 
-No GitHub repository exists yet for this project — everything so far is a local Git history on the builder's machine. There are two clean ways to get it onto GitHub under the recipient's control:
+> ✅ **Status: repository created (2026-07-16).** This repository now exists at [`github.com/paulrsapio-maker/canyon-state-institute`](https://github.com/paulrsapio-maker/canyon-state-institute) (private), fully pushed and up to date with local history. It currently lives under the **builder's** GitHub account — the remaining action is transferring or re-granting ownership to the recipient, per Option A or B below (both are now shorter, since repo creation is already done).
+>
+> **How it actually got there, for the record:** the intended path was `gh repo create … --push`, but the `gh` CLI's credential storage turned out to be broken on the build machine — three separate `gh auth login` / `gh auth refresh` attempts (one backgrounded, one run live in a foreground terminal by the machine's owner) each reported success but left an invalid token in the macOS Keychain every time, confirmed independently via `gh auth status` after each one. Rather than debug Keychain ACLs mid-build, the repo was instead created manually via [github.com/new](https://github.com/new) — a pure web-UI action with no CLI or Keychain dependency — and the push itself succeeded immediately, using a *separate*, already-working `git` HTTPS credential that was already cached on the machine from prior projects. That credential was proven working first with a harmless `git ls-remote` against an existing repo, **before** attempting the real push, to avoid discovering a second broken credential mid-transfer.
+>
+> **Takeaway if this recurs (here or on another machine):** `gh`'s own auth state and plain `git`'s HTTPS credential are stored and validated independently — `gh auth status` failing does not necessarily mean `git push` will fail too. It's worth testing directly (`git ls-remote <a repo you know you can already reach>`) before assuming a full `gh` auth rebuild is required.
+
+There are two clean ways to get a repository onto GitHub under the recipient's control:
 
 **Option A — Recipient creates the repo, builder pushes to it (recommended if the builder should not retain any residual access):**
 1. Recipient creates a new empty (no README/license/gitignore) private repository on GitHub, under their own account or organization.
 2. Recipient temporarily adds the builder as a collaborator with push access.
-3. Builder runs, from the project directory:
+3. Builder runs, from the project directory (this repo already has a remote named `origin` pointing at the builder's copy, so this repoints it rather than adding a new one):
    ```bash
-   git remote add origin <mark>[recipient's repo URL]</mark>
+   git remote set-url origin <mark>[recipient's repo URL]</mark>
    git push -u origin main
    ```
 4. Recipient removes the builder's collaborator access once the push is confirmed.
 
-**Option B — Builder creates the repo, then transfers ownership (preserves GitHub's own "Transfer repository" record, cleanest audit trail):**
-1. Builder creates a new repository under their own GitHub account and pushes (`git remote add origin … && git push -u origin main`).
-2. Builder goes to **Settings → General → Danger Zone → Transfer ownership** on GitHub and transfers the repo to the recipient's account or organization.
-3. Recipient accepts the transfer.
-4. ⚠️ After transfer, if the repo was connected to Vercel for auto-deploy, **reconnect it** — GitHub repository transfers change the underlying repo ID, which breaks existing Vercel Git integrations.
+**Option B — Builder transfers the existing repo's ownership (preserves GitHub's own "Transfer repository" record, cleanest audit trail — and is now the shorter path, since the repo already exists under the builder's account):**
+1. Builder goes to **Settings → General → Danger Zone → Transfer ownership** on the [existing repo](https://github.com/paulrsapio-maker/canyon-state-institute) and transfers it to the recipient's account or organization.
+2. Recipient accepts the transfer.
+3. ⚠️ After transfer, if the repo is later connected to Vercel for auto-deploy, **reconnect it** — GitHub repository transfers change the underlying repo ID, which breaks existing Vercel Git integrations.
 
-> ⚠️ **DECISION:** Choose Option A or B, and confirm whether the recipient wants the builder's name attached to the commit history (both options preserve full history and authorship either way — the choice above only affects *how* the repo gets there, not whether history is preserved).
+> ⚠️ **DECISION:** Choose Option A or B, and confirm whether the recipient wants the builder's name attached to the commit history (both options preserve full history and authorship either way — the choice above only affects *how* the repo gets to the recipient, not whether history is preserved).
 
 ### Step 2 — Confirm repository access
 
